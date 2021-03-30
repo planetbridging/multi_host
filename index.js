@@ -2,11 +2,13 @@ var express = require("express");
 var subdomain = require("express-subdomain");
 var app = express();
 var router = express.Router(); //main api router
+
 var flutter = express.Router();
 var griffith = express.Router();
 var angular = express.Router();
-//var v1Routes = express.Router();
-//var v2Routes = express.Router();
+
+var v1Routes = express.Router();
+var v2Routes = express.Router();
 
 v1Routes.get("/", function (req, res) {
   res.send("API - version 1");

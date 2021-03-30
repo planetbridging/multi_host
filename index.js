@@ -21,7 +21,7 @@ var checkUser = function (req, res, next) {
 
 //the api middleware flow
 //router.use(checkUser);
-router.use(subdomain("*.v1", v1Routes));
+router.use(subdomain("*.japres", express.static(__dirname + "/japres")));
 router.use(subdomain("*.v2", v2Routes));
 
 //basic routing..

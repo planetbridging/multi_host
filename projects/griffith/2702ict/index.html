@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>2702ICT</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="css/bootstrap.css" rel="stylesheet"  >
+        <script src="js/jquery-3.6.0.js"></script>
+		<script src="js/bootstrap.min.js" ></script>
+        <script src="js/angular.js"></script>
+		<link href="css/master.css" rel="stylesheet">
+        <script src="js/color_array.js"></script>
+        <script src="js/animals_array.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+		<script src="js/master.js"></script>
+
+	</head>
+    <body>
+
+
+        <nav id="FixedMenu" class="navbar navbar-expand-md  navbar-dark bg-dark shadow-sm" role="tablist">
+            <a class="navbar-brand" href="/">2702ICT</a>
+            <div id="ToggleMenu">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              
+              <ul class="navbar-nav mr-auto ">
+          
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Week1
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item bg-info text-light" href="#w1task1">task1</a>  
+                <a class="dropdown-item bg-info text-light" href="#w1task2">task2</a>  
+                <a class="dropdown-item bg-info text-light" href="#w1task3">task3</a>  
+                <a class="dropdown-item bg-info text-light" href="#w1task4">task4</a>  
+                <a class="dropdown-item bg-info text-light" href="#w1task5">task5</a>           
+              </div>
+            </li>
+
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownw2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Week2
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownw2">
+                <a class="dropdown-item bg-info text-light" href="#w2task1">task1</a>  
+                <a class="dropdown-item bg-info text-light" href="#w2task2">task2</a>  
+                <a class="dropdown-item bg-info text-light" href="#w2task3">task3</a>  
+                <a class="dropdown-item bg-info text-light" href="#w2task4">task4</a>           
+              </div>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Week3
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                <a class="dropdown-item bg-info text-light" href="#w3task1">task1</a>  
+                <a class="dropdown-item bg-info text-light" href="#w3task2">task2</a>  
+                <a class="dropdown-item bg-info text-light" href="#w3task3">task3</a>  
+                <a class="dropdown-item bg-info text-light" href="#w3task4">task4</a>  
+                <a class="dropdown-item bg-info text-light" href="#w3task5">task5</a>           
+              </div>
+            </li>
+
+          </ul>
+      
+            </div>
+            </div>
+      </nav>
+
+        <div class="p-3 w-100 h-75">
+            
+          <h3 class="text-light text-center">Welcome to 2702ICT</h3>
+          <p class="text-light text-center">Create by Shannon Setter</p>
+          <p class="text-light text-center"><a id="ShowLink" href="/exercises/week1/task5" target="_blank"><span id="ShowPath">Week 1 Task 1 /exercises/week1/task5</span></a></p>
+          <iframe id="ShowCase" src="/exercises/week1/task5"></iframe>
+          
+
+        </div>
+
+        
+
+        <div id="ChatHolder" class="fixed-bottom bg-dark p-2 w-100">
+
+
+          <div ng-app="mainApp"> 
+           
+
+            <div ng-controller="SomeController">
+             
+            </div>
+
+            
+        
+
+            <ul class="nav nav-pills nav-fill">
+                <li class="nav-item">
+                    <button id="ChatToggle" type="button" class="btn btn-dark">
+                        Chat <span id="unique_users" class="badge badge-primary">0</span>
+                    </button>
+                </li>
+                <li class="nav-item"><input id="UserName"  type="text" width="48" placeholder="Name" disabled></li>
+                <li class="nav-item"></li><div ng-controller="AnotherController">
+                  <p class="text-light">{{valueService.value}}</p>
+                </div></li>
+              </ul>
+            
+           
+            <div id="Chat" class="d-none p-3">
+              <div ng-controller="MsgController"> 
+                <ul class="list-group" ng-repeat="msg in tags">
+                        <li class="list-group-item disabled"> 
+                            <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">{{msg.name}}</h5>
+                            <small>{{msg.time}}</small>
+                          </div>
+                          <p class="mb-1">{{msg.msg}}</p>
+                        </li>
+                    </ul>
+            </div>
+                <div id="SendChat" class="fixed-bottom bg-dark p-2 w-100">
+                    <div class="input-group mb-3">
+                    <input id="TxtMsg" type="text" class="form-control" placeholder="send a message">
+                    <div class="input-group-append">
+                      <button id="BtnMsg"  class="btn btn-outline-secondary" type="button">Send</button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div> 
+    </body>
+</html>

@@ -2,8 +2,11 @@ var express = require("express");
 var subdomain = require("express-subdomain");
 var app = express();
 var router = express.Router(); //main api router
-var v1Routes = express.Router();
-var v2Routes = express.Router();
+var flutter = express.Router();
+var griffith = express.Router();
+var angular = express.Router();
+//var v1Routes = express.Router();
+//var v2Routes = express.Router();
 
 v1Routes.get("/", function (req, res) {
   res.send("API - version 1");
@@ -21,8 +24,29 @@ var checkUser = function (req, res, next) {
 
 //the api middleware flow
 //router.use(checkUser);
-router.use(subdomain("*.japres", express.static(__dirname + "/japres")));
-router.use(subdomain("*.v2", v2Routes));
+
+//flutter projects exported
+flutter.use(
+  subdomain("*.japres", express.static(__dirname + "/projects/flutter/japres"))
+);
+
+//griffith
+griffith.use(
+  subdomain(
+    "*.2702ict",
+    express.static(__dirname + "/projects/griffith/2702ict")
+  )
+);
+
+//angular projects exported
+angular.use(
+  subdomain(
+    "*.turnjs_angular",
+    express.static(__dirname + "/projects/angular/turnjs_angular")
+  )
+);
+
+//router.use(subdomain("*.v2", v2Routes));
 
 //basic routing..
 router.get("/", function (req, res) {
@@ -30,5 +54,7 @@ router.get("/", function (req, res) {
 });
 
 //attach the api
-app.use(subdomain("api", router));
+app.use(subdomain("griffith", griffith));
+app.use(subdomain("flutter", flutter));
+app.use(subdomain("angular", angular));
 app.listen(9999);

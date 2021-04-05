@@ -60,7 +60,7 @@ function hash_function_sha1(base_string, key) {
 }
 
 flickr.get("/", function (req, res) {
-  res.send("API - version 1");
+  //res.send("API - version 1");
   const oauth = OAuth({
     consumer: {
       //key: "99872428c9a3629cc7186481eebd04fd",

@@ -110,6 +110,5 @@ app.use(express.static(__dirname + "/projects/flutter/portfolio"));
 app.use(subdomain("griffith", griffith));
 app.use(subdomain("flutter", flutter));
 app.use(subdomain("angular", angular));
-app.use(subdomain("flickr", flickr));
 app.use(subdomain("*.flickr", flickr));
 app.listen(9999);

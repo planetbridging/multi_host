@@ -65,7 +65,7 @@ flickr.get("/", function (req, res) {
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept,authtoken"
   );
-  next();
+
   //res.send("API - version 1");
   const oauth = OAuth({
     consumer: {

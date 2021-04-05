@@ -97,7 +97,7 @@ flickr.get("/", function (req, res) {
 });
 
 //attach the api
-app.use(express.static(__dirname + "/projects/flutter/portfolio"));
+//app.use(express.static(__dirname + "/projects/flutter/portfolio"));
 app.use(subdomain("griffith", griffith));
 app.use(subdomain("flutter", flutter));
 app.use(subdomain("angular", angular));

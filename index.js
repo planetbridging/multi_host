@@ -61,7 +61,7 @@ function hash_function_sha1(base_string, key) {
 
 flickr.get("/", function (req, res) {
   res.send("API - version 1");
-  /*const oauth = OAuth({
+  const oauth = OAuth({
     consumer: {
       //key: "99872428c9a3629cc7186481eebd04fd",
       //secret: "3805e33e71aa0435",
@@ -93,7 +93,7 @@ flickr.get("/", function (req, res) {
       //console.log(body);
       res.send(body);
     }
-  );*/
+  );
 });
 
 //attach the api

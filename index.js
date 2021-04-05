@@ -59,13 +59,13 @@ function hash_function_sha1(base_string, key) {
   return crypto.createHmac("sha1", key).update(base_string).digest("base64");
 }
 
-flickr.get("/", function (req, res) {
+flickr.get("/", function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept,authtoken"
   );
-
+  next();
   //res.send("API - version 1");
   const oauth = OAuth({
     consumer: {

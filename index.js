@@ -15,16 +15,6 @@ var angular = express.Router();
 var api = express.Router();
 var flickr = express.Router();
 
-var v1Routes = express.Router();
-var v2Routes = express.Router();
-
-v1Routes.get("/", function (req, res) {
-  res.send("API - version 1");
-});
-v2Routes.get("/", function (req, res) {
-  res.send("API - version 2");
-});
-
 var checkUser = function (req, res, next) {
   if (!req.session.user.valid) {
     return res.send("Permission denied.");
@@ -59,9 +49,9 @@ angular.use(
 //router.use(subdomain("*.v2", v2Routes));
 
 //basic routing..
-/*router.get("/", function (req, res) {
+api.get("/", function (req, res) {
   res.send("Welcome to the API!");
-});*/
+});
 
 //--------------flickr api middle
 
@@ -69,7 +59,7 @@ function hash_function_sha1(base_string, key) {
   return crypto.createHmac("sha1", key).update(base_string).digest("base64");
 }
 
-/*flickr.get("/", function (req, res) {
+flickr.get("/", function (req, res) {
   //res.send("API - version 1");
   const oauth = OAuth({
     consumer: {
@@ -104,14 +94,14 @@ function hash_function_sha1(base_string, key) {
       res.send(body);
     }
   );
-});*/
+});
 
 v2Routes.get("/", function (req, res) {
   res.send("API - version 2");
 });
 
 //attach the api
-//app.use(express.static(__dirname + "/projects/flutter/portfolio"));
+app.use(express.static(__dirname + "/projects/flutter/portfolio"));
 app.use(subdomain("griffith", griffith));
 app.use(subdomain("flutter", flutter));
 app.use(subdomain("angular", angular));

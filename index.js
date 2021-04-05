@@ -60,6 +60,12 @@ function hash_function_sha1(base_string, key) {
 }
 
 flickr.get("/", function (req, res) {
+  res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept,authtoken"
+  );
+  next();
   //res.send("API - version 1");
   const oauth = OAuth({
     consumer: {

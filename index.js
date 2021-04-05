@@ -49,9 +49,9 @@ angular.use(
 //router.use(subdomain("*.v2", v2Routes));
 
 //basic routing..
-api.get("/", function (req, res) {
+/*api.get("/", function (req, res) {
   res.send("Welcome to the API!");
-});
+});*/
 
 //--------------flickr api middle
 
@@ -60,8 +60,8 @@ function hash_function_sha1(base_string, key) {
 }
 
 flickr.get("/", function (req, res) {
-  //res.send("API - version 1");
-  const oauth = OAuth({
+  res.send("API - version 1");
+  /*const oauth = OAuth({
     consumer: {
       //key: "99872428c9a3629cc7186481eebd04fd",
       //secret: "3805e33e71aa0435",
@@ -93,7 +93,7 @@ flickr.get("/", function (req, res) {
       //console.log(body);
       res.send(body);
     }
-  );
+  );*/
 });
 
 //attach the api
@@ -101,6 +101,6 @@ flickr.get("/", function (req, res) {
 app.use(subdomain("griffith", griffith));
 app.use(subdomain("flutter", flutter));
 app.use(subdomain("angular", angular));
-api.use(subdomain("*.flickr", flickr));
+api.use(subdomain("flickr", flickr));
 app.use(subdomain("api", api));
 app.listen(9999);

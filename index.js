@@ -89,7 +89,7 @@ flickr.get("/", function (req, res) {
     },
   };
 
-  await request(
+  request(
     {
       url: request_data.url,
       method: request_data.method,

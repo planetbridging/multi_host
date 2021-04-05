@@ -12,6 +12,7 @@ const request = require("request");
 var flutter = express.Router();
 var griffith = express.Router();
 var angular = express.Router();
+var api = express.Router();
 var flickr = express.Router();
 
 var v1Routes = express.Router();
@@ -58,9 +59,9 @@ angular.use(
 //router.use(subdomain("*.v2", v2Routes));
 
 //basic routing..
-router.get("/", function (req, res) {
+/*router.get("/", function (req, res) {
   res.send("Welcome to the API!");
-});
+});*/
 
 //--------------flickr api middle
 
@@ -110,5 +111,6 @@ app.use(express.static(__dirname + "/projects/flutter/portfolio"));
 app.use(subdomain("griffith", griffith));
 app.use(subdomain("flutter", flutter));
 app.use(subdomain("angular", angular));
-app.use(subdomain("*.flickr", flickr));
+api.use(subdomain("*.flickr", flickr));
+app.use(subdomain("api", api));
 app.listen(9999);

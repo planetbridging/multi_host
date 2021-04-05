@@ -89,7 +89,7 @@ flickr.get("/", function (req, res) {
     },
   };
 
-  request(
+  await request(
     {
       url: request_data.url,
       method: request_data.method,
@@ -99,7 +99,7 @@ flickr.get("/", function (req, res) {
       // Process your data here
       //console.log(response);
       //console.log("---------");
-      console.log(body);
+      //console.log(body);
       res.send(body);
     }
   );
@@ -111,4 +111,5 @@ app.use(subdomain("griffith", griffith));
 app.use(subdomain("flutter", flutter));
 app.use(subdomain("angular", angular));
 app.use(subdomain("flickr", flickr));
+app.use(subdomain("*.flickr", flickr));
 app.listen(9999);

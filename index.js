@@ -96,10 +96,6 @@ flickr.get("/", function (req, res) {
   );
 });
 
-v2Routes.get("/", function (req, res) {
-  res.send("API - version 2");
-});
-
 //attach the api
 app.use(express.static(__dirname + "/projects/flutter/portfolio"));
 app.use(subdomain("griffith", griffith));

@@ -126,7 +126,13 @@ var options = {
   cert: cert,
 };
 
-var server = https.createServer(options, app);
-server.listen(443, function () {
+/*var http = require("http").createServer(app);
+var server = https.createServer(options, app);*/
+const https = require("https").createServer(options, app);
+const http = require("http").createServer(app);
+http.listen(8080, () => console.log("PORT :: 80"));
+https.listen(4433, () => console.log("PORT :: 443"));
+/*server.listen(443, function () {
   console.log("server running at 443");
 });
+*/

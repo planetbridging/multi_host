@@ -128,10 +128,10 @@ var options = {
 
 /*var http = require("http").createServer(app);
 var server = https.createServer(options, app);*/
-const https = require("https").createServer(options, app);
-const http = require("http").createServer(app);
-http.listen(8080, () => console.log("PORT :: 80"));
-https.listen(4433, () => console.log("PORT :: 443"));
+const s_https = require("https").createServer(options, app);
+const s_http = require("http").createServer(app);
+s_https.listen(443, () => console.log("PORT :: 443"));
+s_http.listen(80, () => console.log("PORT :: 80"));
 /*server.listen(443, function () {
   console.log("server running at 443");
 });

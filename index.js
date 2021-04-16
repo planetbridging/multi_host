@@ -127,11 +127,7 @@ var options = {
 };
 
 var server_https = https.createServer(options, app);
-var server_http = http.createServer(app);
+app.listen(80);
 server_https.listen(443, function () {
   console.log("server running at 443");
-});
-
-server_http.listen(80, function () {
-  console.log("server running at 80");
 });

@@ -1,4 +1,5 @@
 var express = require("express");
+const https = require("https");
 var subdomain = require("express-subdomain");
 var app = express();
 var router = express.Router(); //main api router
@@ -26,7 +27,7 @@ var checkUser = function (req, res, next) {
 //router.use(checkUser);
 
 //flutter projects exported
-flutter.use(
+app.use(
   subdomain("*.japres", express.static(__dirname + "/projects/flutter/japres"))
 );
 
@@ -106,10 +107,23 @@ flickr.get("/", function (req, res) {
 });
 
 //attach the api
-//app.use(express.static(__dirname + "/projects/flutter/portfolio"));
+app.use(express.static(__dirname + "/projects/flutter/pressback.space"));
+//app.use(express.static(__dirname + "/UI"));
 app.use(subdomain("griffith", griffith));
 app.use(subdomain("flutter", flutter));
 app.use(subdomain("angular", angular));
 api.use(subdomain("flickr", flickr));
 app.use(subdomain("api", api));
-app.listen(9999);
+//app.listen(9999);
+
+var key = fs.readFileSync(__dirname + "localhost-private.pem");
+var cert = fs.readFileSync(__dirname + "localhost-cert.pem");
+var options = {
+  key: key,
+  cert: cert,
+};
+
+var server = https.createServer(options, app);
+server.listen(8001, function () {
+  console.log("server running at 8001");
+});

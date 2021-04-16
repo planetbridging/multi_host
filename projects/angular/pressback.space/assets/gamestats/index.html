@@ -1,0 +1,159 @@
+<html>
+<head>
+        <meta charset="UTF-8">
+        <title>Steam</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="jquery-3.5.1.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
+		<script src="engine.js"></script>
+		<script src="Chart.min.js"></script>
+	<script src="utils.js"></script>
+	<style>
+	canvas {
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+	}
+	body, html {
+    padding: 0;
+    margin: 0;
+    background-color: #005274;
+    height: 100%;
+    width: 100%;
+}
+	</style>
+	</head>
+<body>
+
+
+<div class="list-group list-group-horizontal" id="list-tab" role="tablist">
+	 <a class="list-group-item-dark list-group-item-action active text-center" id="list-graphs-list" data-toggle="list" href="#list-graphs" role="tab" aria-controls="graphs">Graphs</a>
+      <a class="list-group-item-dark list-group-item-action text-center" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Steam data</a>
+      <a class="list-group-item-dark list-group-item-action text-center" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Top Games Android</a>
+      <a class="list-group-item-dark list-group-item-action text-center" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Top Grossing Games Android</a>
+      <a class="list-group-item-dark list-group-item-action text-center" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Top Selling Games Android</a>
+    </div>
+<div class="row">
+  <div class="col">
+    <div class="tab-content" id="nav-tabContent">
+	<div class="tab-pane fade show active" id="list-graphs" role="tabpanel" aria-labelledby="list-graphs-list">
+
+<div style="width:100%;">
+		<canvas id="canvas"></canvas>
+		<p class="text-white text-center">Create with Chart.js</p>
+	</div>
+
+	  </div>
+      <div class="tab-pane fade show" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+		<h5 class="text-center text-white">Steam top 50</h5>
+		<table id="TblSteamData" class="table table-dark">
+		</table>
+	  </div>
+      <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+		<h5 class="text-center text-white">Top Android 50</h5>
+		<table id="TblTopGames" class="table table-dark">
+		</table>
+	  </div>
+      <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+		<h5 class="text-center text-white">Top Grossing Android 50</h5>
+		<table id="TblTopGrossing" class="table table-dark">
+		</table>
+	  </div>
+      <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
+		<h5 class="text-center text-white">Top Selling Android 50</h5>
+		<table id="TblSelling" class="table table-dark">
+		</table>
+	  </div>
+    </div>
+  </div>
+</div>
+
+
+
+	<script>
+		function finish_loading(){
+			var lineChartData = {
+			labels: item_collection,
+			datasets: [{
+				label: 'Steam Max Est Games',
+				borderColor: window.chartColors.red,
+				backgroundColor: window.chartColors.red,
+				fill: false,
+				data: steam_data,
+				yAxisID: 'y-axis-1',
+			},{
+				label: 'Steam Min Games',
+				borderColor: window.chartColors.orange,
+				backgroundColor: window.chartColors.orange,
+				fill: false,
+				data: steam_min_data,
+				yAxisID: 'y-axis-1',
+			}, {
+				label: 'Top Android 50',
+				borderColor: window.chartColors.blue,
+				backgroundColor: window.chartColors.blue,
+				fill: false,
+				data: top_data,
+				yAxisID: 'y-axis-2'
+			}, {
+				label: 'Top Grossing Android',
+				borderColor: window.chartColors.green,
+				backgroundColor: window.chartColors.green,
+				fill: false,
+				data: grossing_data,
+				yAxisID: 'y-axis-2'
+			}, {
+				label: 'Top Selling Android',
+				borderColor: window.chartColors.purple,
+				backgroundColor: window.chartColors.purple,
+				fill: false,
+				data: selling_data,
+				yAxisID: 'y-axis-2'
+			}]
+		};
+		Chart.defaults.global.defaultFontColor = 'white';
+		var ctx = document.getElementById('canvas').getContext('2d');
+			window.myLine = Chart.Line(ctx, {
+				data: lineChartData,
+				options: {
+					responsive: true,
+					hoverMode: 'index',
+					stacked: false,
+					title: {
+						display: true,
+						text: 'Steam vs Android Est Downloads/Owners'
+					},
+					scales: {
+						yAxes: [{
+							type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+							display: true,
+							position: 'left',
+							id: 'y-axis-1',
+						}, {
+							type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+							display: true,
+							position: 'right',
+							id: 'y-axis-2',
+
+							// grid line settings
+							gridLines: {
+								drawOnChartArea: false, // only want the grid lines for one axis to show up
+							},
+						}],
+					},
+					legend: {
+						labels: {
+							// This more specific font property overrides the global property
+							fontColor: 'white'
+						}
+					}
+				}
+			});
+		}
+	</script>
+</body>
+</html>

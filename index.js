@@ -126,13 +126,12 @@ var options = {
   cert: cert,
 };
 
-/*var http = require("http").createServer(app);
-var server = https.createServer(options, app);*/
-
-server.listen(443, function () {
+var server_https = https.createServer(options, app);
+var server_http = http.createServer(app);
+server_https.listen(443, function () {
   console.log("server running at 443");
 });
 
-server.listen(80, function () {
+server_http.listen(80, function () {
   console.log("server running at 80");
 });

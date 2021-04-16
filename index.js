@@ -108,7 +108,7 @@ flickr.get("/", function (req, res) {
 });
 
 //attach the api
-app.use(express.static(__dirname + "/projects/flutter/pressback.space"));
+app.use("/", express.static(__dirname + "/projects/flutter/pressback.space"));
 //app.use(express.static(__dirname + "/UI"));
 app.use(subdomain("griffith", griffith));
 app.use(subdomain("flutter", flutter));

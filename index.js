@@ -1,5 +1,6 @@
 var express = require("express");
 const https = require("https");
+const fs = require("fs");
 var subdomain = require("express-subdomain");
 var app = express();
 var router = express.Router(); //main api router

@@ -117,9 +117,15 @@ api.use(subdomain("flickr", flickr));
 app.use(subdomain("api", api));
 //app.listen(9999);
 
-var key = fs.readFileSync("/etc/letsencrypt/live/pressback.space/privkey.pem");
+/*var key = fs.readFileSync("/etc/letsencrypt/live/pressback.space/privkey.pem");
 var cert = fs.readFileSync(
   "/etc/letsencrypt/live/pressback.space/fullchain.pem"
+);*/
+var key = fs.readFileSync(
+  "/etc/letsencrypt/live/pressback.space-0001/privkey.pem"
+);
+var cert = fs.readFileSync(
+  "/etc/letsencrypt/live/pressback.space-0001/fullchain.pem"
 );
 var options = {
   key: key,

@@ -116,8 +116,10 @@ api.use(subdomain("flickr", flickr));
 app.use(subdomain("api", api));
 //app.listen(9999);
 
-var key = fs.readFileSync(__dirname + "localhost-private.pem");
-var cert = fs.readFileSync(__dirname + "localhost-cert.pem");
+var key = fs.readFileSync("/etc/letsencrypt/live/pressback.space/privkey.pem");
+var cert = fs.readFileSync(
+  "/etc/letsencrypt/live/pressback.space/fullchain.pem"
+);
 var options = {
   key: key,
   cert: cert,

@@ -41,7 +41,7 @@ griffith.use(
 );
 
 //angular projects exported
-angular.use(
+app.use(
   subdomain(
     "*.turnjs_angular",
     express.static(__dirname + "/projects/angular/turnjs_angular")

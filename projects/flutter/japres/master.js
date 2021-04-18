@@ -44,7 +44,7 @@ class objoLogin {
       if (win.document.URL.indexOf(this.url) != -1) {
         //console.log(windowUrl);
         this.processUrl(windowUrl);
-        clearInterval(timer);
+        //clearInterval(timer);
         //win.close();
       }
 

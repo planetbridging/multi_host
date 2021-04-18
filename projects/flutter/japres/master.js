@@ -43,23 +43,24 @@ class objoLogin {
       var windowUrl = win.document.URL;
       if (win.document.URL.indexOf(this.url) != -1) {
         //console.log(windowUrl);
-        processUrl(windowUrl);
+        this.processUrl(windowUrl);
+        clearInterval(timer);
         //win.close();
       }
 
-      if (win.closed) {
+      /*if (win.closed) {
         clearInterval(timer);
 
         console.log(windowUrl + " closed");
-      }
+      }*/
     }, 500);
   }
 
   processUrl(url) {
-    //console.log("URL:::" + url);
+    console.log("URL:::" + url);
     this.token = this.gup(url, "access_token");
     this.expires_in = this.gup(url, "expires_in");
-    console.log(this.token);
+    console.log("token:::" + this.token);
   }
 
   gup(url, name) {
@@ -205,7 +206,7 @@ function loginUniversal(type, redirect) {
 
 $(document).ready(function () {
   var link = window.location.href;
-  if (link.startsWith("http://" && link != "http://127.0.0.1")) {
+  if (link.startsWith("http://")) {
     link = link.replace("http://", "https://");
     window.location.href = link;
   }

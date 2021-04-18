@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Japres</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <script src="master.js"></script>
+    <!--<link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />-->
+    <link href="master.css" rel="stylesheet" />
+
+    <!--<script>
+      //https://facebook.com/dialog/oauth?client_id=461378741640304&redirect_uri=http://localhost&response_type=token
+
+      var facebookUrl =
+        "https://facebook.com/dialog/oauth?client_id=461378741640304&redirect_uri=http://localhost/complete.html&response_type=token";
+      function oLogin(logType) {
+        var win = window.open(facebookUrl, "Login", "width=800,height=600");
+        var timer = setInterval(function () {
+          console.log(win.location.href);
+          var windowUrl = win.location.href;
+          if (windowUrl != undefined) {
+            if (logType == "facebook") {
+              if (windowUrl.indexOf("#access_token=") > -1) {
+                console.log(windowUrl);
+              }
+            }
+          }
+
+          if (win.closed) {
+            clearInterval(timer);
+
+            console.log(logType + " closed");
+          }
+        }, 500);
+      }
+
+      var objoauth = new objoGoogle("feijiofeje");
+      console.log(objoauth.redirect_url);
+    </script>
+  class="navbar navbar-expand-md navbar-light shadow-sm nav-pills nav-fill nav-justified"
+  --></head>
+  <body>
+    <div class="card bg-transparent border-0">
+      <div class="card-body">
+        <h5 class="card-title">
+          <img
+            class="img-fluid mx-auto d-block"
+            src="imgs/Logo.png"
+            alt="Clair"
+            style="width: 50rem"
+          />
+        </h5>
+        <p class="card-text text-center bg-transparent border-0">
+          <span class="chatBubbleblurBackground">Login complete</span>
+        </p>
+        <p class="card-text text-center bg-transparent border-0 p-3">
+          <span id="TxtCountDown" class="chatBubbleblurBackground"
+            >This window will close in 3</span
+          >
+        </p>
+      </div>
+    </div>
+    <script>
+      /*var myVar = setInterval(myTimer, 1000);
+      function myTimer() {
+        var d = new Date();
+        var count = 5;
+        document.getElementById("TxtCountDown").innerHTML =
+          "This window will close in " + count;
+        count -= 1;
+        if (count <= 0) {
+          closeWindow();
+        }
+      }*/
+      setInterval(countDown, 5000);
+      var count = 3;
+      function countDown() {
+        count -= 1;
+        document.getElementById("TxtCountDown").innerHTML =
+          "This window will close in " + count;
+        console.log(count);
+        if (count <= 0) {
+          window.close();
+        }
+      }
+    </script>
+  </body>
+</html>

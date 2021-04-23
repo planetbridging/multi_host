@@ -111,9 +111,17 @@ flickr.get("/", function (req, res) {
   );
 });
 
-app.get('*', function(req, res) {  
+/*app.get('*', function(req, res) {  
   res.redirect('https://' + req.headers.host + req.url);
-})
+});*/
+
+app.use(function(req,res,next) {
+  if (!/https/.test(req.protocol)){
+     res.redirect("https://" + req.headers.host + req.url);
+  } else {
+     return next();
+  } 
+});
 
 //attach the api
 app.use("/", express.static(__dirname + "/projects/angular/pressback.space"));

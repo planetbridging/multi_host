@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Explore Australia</title>
+    
+    <script src="jquery.js"></script>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link href="master.css" rel="stylesheet" />
+    <script src="objs.js"></script>
+    <script src="loadphotos.js"></script>
+    <script src="master.js"></script>
+    <script src="googlemaps.js"></script>
+  </head>
+  <body>
+      <div>
+    <div id="Banner" class="one-edge-shadow">
+        <div id="TitleBannerMenu">
+            <h1>Explore Australia</h1>
+        </div>
+        <div id="BottomBannerMenu" class="one-edge-shadow ">
+        </div>
+      <img
+        alt="banner"
+        src="https://live.staticflickr.com/3853/14265974019_acad1d25e4_h.jpg"
+        width="100%"
+      />
+    </div>
+    <div id="Menu" class="flex-container one-edge-shadow ">
+        <div  class="smallSteps">Refresh the page for a random location</div>
+      </div>
+    
+    <div > 
+        <h2 class="centertxt"></h2>
+        <div id="Gallery" class="WindowSteps"></div>
+        <div class="WindowSteps">
+            
+            <div class="menuItems">
+                <h3>Select the places you want to visit</h3>
+                <ul id="LstMainState">
+                </ul>
+                <!--<li class="checked">Pay bills</li><input type="text" id="HolidayPrice" value="500">
+                <div class="slidecontainer">
+                  <input type="range" min="1" max="10000" value="500" class="slider" id="HolidaySlider">
+                </div>-->
+            </div>
+            <div id="Step2" class="menuItems">
+              <h3>Map</h3>
+              <h4 id="locationField">
+              </h4>
+              <div id="map"></div>
+            </div>
+            <div id="Step3" class="menuItems">
+              <h3>Selected places</h3>
+              <ul id="places"></ul>
+            <button id="more">Load more results</button>
+            </div>
+          </div>
+    </div>
+    <div class="WindowSteps">
+            
+        <div class="menuItems">
+            <h3>Recently viewed</h3>
+            <ul id="LstRecently">
+            </ul>
+        </div>
+    </div>
+    <div id="Bg"></div>
+    <div id="modelcontainer" class="hideItem">
+        <div id="closecontainer">&times;</div>
+        <div id="imgcontainer"></div>
+        <div id="imgdatecaption">
+            
+        </div>
+        <div id="imgcaption">
+
+        </div>
+      </div>
+    <p id="BottomFooterMenu">
+        Copyright © Shannon Setter
+        planetbridging@gmail.com
+        </p>
+</div>
+
+<script
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCo81I-Ep69upGigFJsii7XduuOQqXSn9A&callback=initMap&libraries=places&v=weekly"
+async
+></script>
+
+  </body>
+</html>

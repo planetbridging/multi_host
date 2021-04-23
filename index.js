@@ -32,6 +32,10 @@ app.use(
   subdomain("*.japres", express.static(__dirname + "/projects/flutter/japres"))
 );
 
+app.use(
+  subdomain("*.holiday", express.static(__dirname + "/projects/griffith/2702ict/exercises/assignment1/"))
+);
+
 //griffith
 griffith.use(
   subdomain(
@@ -106,6 +110,10 @@ flickr.get("/", function (req, res) {
     }
   );
 });
+
+app.get('*', function(req, res) {  
+  res.redirect('https://' + req.headers.host + req.url);
+})
 
 //attach the api
 app.use("/", express.static(__dirname + "/projects/angular/pressback.space"));

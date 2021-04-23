@@ -1,0 +1,188 @@
+[
+    {
+      "State": "Queensland",
+      "Place": "Gold Coast",
+      "Latitude": -28.016666,
+      "Longitude": 153.399994
+    },
+    {
+      "State": "Queensland",
+      "Place": "Brisbane",
+      "Latitude": -27.46977,
+      "Longitude": 153.025131
+    },
+    {
+      "State": "Queensland",
+      "Place": "NOOSA HEADS",
+      "Latitude": -26.3983,
+      "Longitude": 153.09215
+    },
+    {
+      "State": "Queensland",
+      "Place": "FRASER ISLAND",
+      "Latitude": -25.39258,
+      "Longitude": 153.029465
+    },
+    {
+      "State": "Queensland",
+      "Place": "HAMILTON ISLAND",
+      "Latitude": -20.35358,
+      "Longitude": 148.95046
+    },
+    {
+      "State": "Queensland",
+      "Place": "CAIRNS",
+      "Latitude": -16.922779,
+      "Longitude": 145.770294
+    },
+    {
+      "State": "Queensland",
+      "Place": "PORT DOUGLAS",
+      "Latitude": -16.48398,
+      "Longitude": 145.465836
+    },
+    {
+      "State": "New South Wales",
+      "Place": "Sydney",
+      "Latitude": -33.86882,
+      "Longitude": 151.20929
+    },
+    {
+      "State": "New South Wales",
+      "Place": "BONDI",
+      "Latitude": -37.156109,
+      "Longitude": 149.182465
+    },
+    {
+      "State": "Victoria",
+      "Place": "GIPPSLAND",
+      "Latitude": -37.387428,
+      "Longitude": 148.425293
+    },
+    {
+      "State": "Victoria",
+      "Place": "MELBOURNE",
+      "Latitude": -37.813629,
+      "Longitude": 144.963058
+    },
+    {
+      "State": "Victoria",
+      "Place": "GREAT OCEAN ROAD",
+      "Latitude": -38.338,
+      "Longitude": 144.29784
+    },
+    {
+      "State": "Victoria",
+      "Place": "PHILLIP ISLAND",
+      "Latitude": -38.45193,
+      "Longitude": 145.23899
+    },
+    {
+      "State": "Tasmania",
+      "Place": "THE WEST COAST WILDERNESS WAY",
+      "Latitude": -38.2997,
+      "Longitude": 141.61897
+    },
+    {
+      "State": "Tasmania",
+      "Place": "FREYCINET AND THE EAST COAST",
+      "Latitude": -42.14217,
+      "Longitude": 148.29605
+    },
+    {
+      "State": "Tasmania",
+      "Place": "HOBART",
+      "Latitude": -42.881901,
+      "Longitude": 147.323807
+    },
+    {
+      "State": "South Australia",
+      "Place": "NULLARBOR",
+      "Latitude": -30.72875,
+      "Longitude": 130.437943
+    },
+    {
+      "State": "South Australia",
+      "Place": "FLINDERS RANGES AND OUTBACK",
+      "Latitude": -31.46623,
+      "Longitude": 138.42857
+    },
+    {
+      "State": "South Australia",
+      "Place": "EYRE PENINSULA",
+      "Latitude": -38.38703,
+      "Longitude": 145.17653
+    },
+    {
+      "State": "South Australia",
+      "Place": "PORT LINCOLN",
+      "Latitude": -34.71965,
+      "Longitude": 135.857605
+    },
+    {
+      "State": "South Australia",
+      "Place": "ADELAIDE",
+      "Latitude": -34.928497,
+      "Longitude": 138.600739
+    },
+    {
+      "State": "South Australia",
+      "Place": "KANGAROO ISLAND",
+      "Latitude": -35.707169,
+      "Longitude": 136.826477
+    },
+    {
+      "State": "North Australia",
+      "Place": "DARWIN CITY",
+      "Latitude": -12.48109,
+      "Longitude": 130.98604
+    },
+    {
+      "State": "North Australia",
+      "Place": "KAKADU AREA",
+      "Latitude": -13.13211,
+      "Longitude": 132.4575
+    },
+    {
+      "State": "North Australia",
+      "Place": "ALICE SPRINGS",
+      "Latitude": -23.698042,
+      "Longitude": 133.880753
+    },
+    {
+      "State": "North Australia",
+      "Place": "ULURU (AYERS ROCK)",
+      "Latitude": -25.344427,
+      "Longitude": 131.03688
+    },
+    {
+      "State": "Western Australia",
+      "Place": "ROTTNEST ISLAND",
+      "Latitude": -31.99679,
+      "Longitude": 115.540237
+    },
+    {
+      "State": "Western Australia",
+      "Place": "PERTH",
+      "Latitude": -31.950527,
+      "Longitude": 115.860458
+    },
+    {
+      "State": "Western Australia",
+      "Place": "KALBARRI",
+      "Latitude": -27.75271,
+      "Longitude": 114.14502
+    },
+    {
+      "State": "Western Australia",
+      "Place": "NINGALOO",
+      "Latitude": -22.83629,
+      "Longitude": 113.801392
+    },
+    {
+      "State": "Western Australia",
+      "Place": "BROOME",
+      "Latitude": -17.95215,
+      "Longitude": 122.245049
+    }
+   ]

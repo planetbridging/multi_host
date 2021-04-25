@@ -80,14 +80,13 @@ box-shadow: 0px -18px 22px 13px rgba(0,0,0,0.94);
     width: 100%;
 }
 
-#map{
-    height: 40%;
-    width: 100%;
-}
 
 /*--------------------adjust main divs-------------------------------*/
 @media all and (min-width: 1024px) {
-
+  #map{
+    height: 300px;
+    width: 100%;
+}
     .menuItems {
 
         width: 30%;
@@ -96,7 +95,10 @@ box-shadow: 0px -18px 22px 13px rgba(0,0,0,0.94);
 }
 
 @media screen and (min-width:768px) and (max-width:1024px){
-
+  #map{
+    height: 300px;
+    width: 100%;
+}
   
       .menuItems {
 
@@ -107,6 +109,10 @@ box-shadow: 0px -18px 22px 13px rgba(0,0,0,0.94);
 
 @media screen and (max-width: 767px) {
 
+  #map{
+    height: 300px;
+    width: 100%;
+}
   
       .menuItems {
 

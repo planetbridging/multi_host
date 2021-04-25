@@ -2,6 +2,8 @@ var flickr_key = "99872428c9a3629cc7186481eebd04fd";
 var parms = "";
 var lstRecently = [];
 function loadListener(){
+  $("#RecentView").removeClass("hideItem");
+  //console.log("yay");
     $("#LstRecently li").off();
     /*$("#LstRecently li").click(function () {
         //$("#modelcontainer").attr("visibility", "show");
@@ -120,6 +122,7 @@ function GrabPhotos(txt) {
   }
   
   function viewPhoto(id,itemNumber,rec) {
+    
     var l =
     "https://www.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=" +
     flickr_key +

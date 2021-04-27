@@ -36,6 +36,10 @@ app.use(
   subdomain("*.holiday", express.static(__dirname + "/projects/griffith/2702ict/exercises/assignment1/"))
 );
 
+app.use(
+  subdomain("*.security", express.static(__dirname + "/projects/simple/security/"))
+);
+
 //griffith
 griffith.use(
   subdomain(

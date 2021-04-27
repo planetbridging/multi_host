@@ -1,0 +1,201 @@
+body, html{
+	padding: 0;
+	margin: 0;
+	height:100%;
+	width:100%;
+    background-color:#000000;
+}
+
+@media all and (min-width: 1024px) {
+
+    #Content{
+        position:relative;
+        padding-top:70px;
+    }
+
+    .menuItems {
+        width: 30%;
+        text-align: center;
+      }
+}
+  
+  @media screen and (min-width:768px) and (max-width:1024px){
+    #Content{
+        position:relative;
+        padding-top:90px;
+    }
+
+    .menuItems {
+
+        width: 45%;
+        text-align: center;
+      }
+  }
+  
+  @media screen and (max-width: 767px) {
+    #Content{
+        position:relative;
+        padding-top:120px;
+    }
+
+    .menuItems {
+
+        width: 100%;
+        text-align: center;
+      }
+  }
+
+  @media screen and (max-width: 490px) {
+    #Content{
+        position:relative;
+        padding-top:170px;
+    }
+
+    .menuItems {
+        width: 100%;
+        text-align: center;
+      }
+  }
+
+  @media screen and (max-width: 250px) {
+    #Content{
+        position:relative;
+        padding-top:220px;
+    }
+    .menuItems {
+
+        width: 100%;
+        text-align: center;
+      }
+  }
+
+@media screen and (max-width: 200px) {
+    #Content{
+        position:relative;
+        padding-top:300px;
+    }
+    .menuItems {
+
+        width: 100%;
+        text-align: center;
+      }
+  }
+#Content{
+    z-index: 100;
+    padding-bottom: 60px;
+}
+
+.menuItems{
+    background-color: rgba(255, 255, 255, 0.65);
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+#FixedMenu{
+    position: fixed;
+    background-color: #343a40!important;
+    width: 100%;
+    top: 0px;
+    padding: 10px;
+	margin: 0;
+    z-index: 200;
+}
+
+#FixedFooter{
+    position: fixed;
+    background-color: #343a40!important;
+    width: 100%;
+    bottom: 0px;
+    padding: 5px;
+	margin: 0;
+    z-index: 100;
+}
+
+#Header{
+    width: 100%;
+    z-index: 20;
+    color: white;
+}
+
+
+#BG{
+    position: absolute;
+    width : 100%;
+    height: 100%;
+    top: 0px;
+   
+    background:url('/imgs/keyboard.jpg');
+    -webkit-background-size: cover; 
+  -moz-background-size: cover; 
+  -o-background-size: cover; 
+  background-size: cover;
+    filter        : blur(20px);
+    -moz-filter   : blur(20px);
+    -webkit-filter: blur(20px);
+    -o-filter     : blur(20px);
+    z-index: 1;
+    transition        : all 2s linear;
+    -moz-transition   : all 2s linear;
+    -webkit-transition: all 2s linear;
+    -o-transition     : all 2s linear;
+    -webkit-box-shadow: inset 0px 0px 5px 26px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px 0px 5px 26px rgba(0,0,0,0.75);
+    box-shadow: inset 0px 0px 5px 26px rgba(0,0,0,0.75);
+}
+
+#FixedMenu img {
+    vertical-align:middle;
+}
+
+#Middle{
+    z-index: 20;
+}
+
+.full-width {
+    width: 100%;
+}
+
+a, h1{
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    line-height: inherit;
+    white-space: nowrap;
+    vertical-align: middle;
+    line-height: 60px;
+    text-align: center;
+    color: white;
+}
+
+
+a:link {
+    text-decoration: none;
+    color: white;
+    text-align: center;
+}
+  
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    text-decoration: underline;
+}
+
+
+.WindowSteps {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex: 1;
+    margin-bottom: 20px;
+}
+
+.center {
+    text-align: center;
+}

@@ -1,3 +1,10 @@
+function navigationJS(path) {
+  //window.location.href = path;
+  window.location.replace(
+    "https://facebook.com/dialog/oauth?client_id=461378741640304&redirect_uri=http://localhost:5616&response_type=token"
+  );
+}
+
 class objoLogin {
   oauth_url = "";
   valid_url = "";
@@ -37,30 +44,28 @@ class objoLogin {
   }
 
   login() {
-    var win = window.open(this.url, "Login", "width=800,height=600");
+    window.location.href = this.url;
+    /*var win = window.open(this.url, "Login", "width=800,height=600");
     var timer = setInterval(function () {
       //console.log(win.location.href);
       var windowUrl = win.document.URL;
       if (win.document.URL.indexOf(this.url) != -1) {
-        //console.log(windowUrl);
-        this.processUrl(windowUrl);
-        //clearInterval(timer);
-        //win.close();
+        console.log(windowUrl);
+        win.close();
       }
 
-      /*if (win.closed) {
+      if (win.closed) {
         clearInterval(timer);
 
         console.log(windowUrl + " closed");
-      }*/
-    }, 500);
+      }
+    }, 500);*/
   }
 
   processUrl(url) {
-    console.log("URL:::" + url);
+    //console.log("URL:::" + url);
     this.token = this.gup(url, "access_token");
-    this.expires_in = this.gup(url, "expires_in");
-    console.log("token:::" + this.token);
+    this.token = this.gup(url, "expires_in");
   }
 
   gup(url, name) {
@@ -150,7 +155,6 @@ class objoFacebook extends objoLogin {
       "&redirect_uri=" +
       _redirect_url +
       "&response_type=token";
-    console.log(this.url);
   }
 
   processUrl(url) {
@@ -194,7 +198,8 @@ var oFacebook = null;
 
 function loginUniversal(type, redirect) {
   if (type == "google") {
-    objoGoogle = new objoGoogle(redirect);
+    oGoogle = new objoGoogle(redirect);
+    oGoogle.login();
     /*objoGoogle.processUrl(
       "http://localhost/complete.html#access_token=ya29.a0AfH6SMDeFTXZsUEvOCT0M3E6gQfFXyBwGAV9MiEEZyoN-Mygz74aOapxwB5fefTIdIkB6SPBkShldjbtO57l7CHhexEPpBIm6hp35ecKaUgpIo9yDRKBe02EvHtkw9YCgBB1bSMrh_pPtdH62385fznSdwt1&token_type=Bearer&expires_in=3598&scope=email%20profile%20https://www.googleapis.com/auth/userinfo.email%20https://www.googleapis.com/auth/userinfo.profile%20openid&authuser=0&prompt=none"
     );*/
@@ -204,16 +209,29 @@ function loginUniversal(type, redirect) {
   }
 }
 
+function getGoogle() {
+  return oGoogle;
+}
+
+function getFacebook() {
+  return new oFacebook("http://pressback.space");
+}
+
 $(document).ready(function () {
-  var link = window.location.href;
-  if (link.startsWith("http://")) {
-    link = link.replace("http://", "https://");
-    window.location.href = link;
+  var url = window.document.URL;
+  var token = "";
+  if (url.includes("access_token")) {
+    token = process_gup(url, "access_token");
+    print(token);
+    print("YAYY");
   }
-  $("#BtnGoogle").click(function () {
-    loginUniversal("google", "https://japres.pressback.space/complete.html");
-  });
-  $("#BtnFacebook").click(function () {
-    loginUniversal("facebook", "https://japres.pressback.space/complete.html");
-  });
 });
+
+function process_gup(url, name) {
+  name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+  var regexS = "[\\#&]" + name + "=([^&#]*)";
+  var regex = new RegExp(regexS);
+  var results = regex.exec(url);
+  if (results == null) return "";
+  else return results[1];
+}

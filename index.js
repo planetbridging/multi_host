@@ -40,6 +40,10 @@ app.use(
   subdomain("*.security", express.static(__dirname + "/projects/simple/security/"))
 );
 
+app.use(
+  subdomain("*.shannon", express.static(__dirname + "/projects/shannon/"))
+);
+
 //griffith
 griffith.use(
   subdomain(
